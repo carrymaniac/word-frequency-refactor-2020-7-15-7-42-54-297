@@ -8,9 +8,9 @@ public class WordFrequencyGame {
     public static final String BLANK_SPACE = " ";
 
 
-    public String getResult(String inputStr) {
+    public String getResult(String sentence) {
             try {
-                List<WordInfo> wordInfoList = generateWordFrequencyList(inputStr);
+                List<WordInfo> wordInfoList = generateWordFrequencyList(sentence);
                 wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
                 return generateWordInfoFrequencyString(wordInfoList);
             } catch (Exception e) {
