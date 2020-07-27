@@ -20,13 +20,13 @@ public class WordFrequencyGame {
 
     private List<WordInfo> generateWordFrequencyList(String sentence) {
         List<String> strings = Arrays.asList(sentence.split(SPACE_REGEX));
-        List<WordInfo> list = new ArrayList<>();
+        List<WordInfo> wordInfos = new ArrayList<>();
         for (String uniqueWord : new HashSet<>(strings)) {
             long count = strings.stream().filter(word -> word.equals(uniqueWord)).count();
             WordInfo wordInfo = new WordInfo(uniqueWord, (int) count);
-            list.add(wordInfo);
+            wordInfos.add(wordInfo);
         }
-        return list;
+        return wordInfos;
     }
 
     private String generateWordInfoFrequencyString(List<WordInfo> wordInfoList) {
