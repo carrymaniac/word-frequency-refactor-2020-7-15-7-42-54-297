@@ -9,9 +9,6 @@ public class WordFrequencyGame {
 
 
     public String getResult(String inputStr) {
-        if (inputStr.split(SPACE_REGEX).length == 1) {
-            return inputStr + " 1";
-        } else {
             try {
                 List<WordInfo> wordInfoList = generateWordFrequencyList(inputStr);
                 wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
@@ -19,7 +16,6 @@ public class WordFrequencyGame {
             } catch (Exception e) {
                 return CALCULATE_ERROR;
             }
-        }
     }
 
     private List<WordInfo> generateWordFrequencyList(String sentence) {
