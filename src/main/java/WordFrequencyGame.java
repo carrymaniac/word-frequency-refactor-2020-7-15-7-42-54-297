@@ -31,16 +31,20 @@ public class WordFrequencyGame {
 
                 wordInfoList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
 
-                StringJoiner joiner = new StringJoiner("\n");
-                for (WordInfo w : wordInfoList) {
-                    String s = w.getValue() + " " +w.getWordCount();
-                    joiner.add(s);
-                }
-                return joiner.toString();
+                return generateWordInfoFrequency(wordInfoList);
             } catch (Exception e) {
                 return "Calculate Error";
             }
         }
+    }
+
+    private String generateWordInfoFrequency(List<WordInfo> wordInfoList) {
+        StringJoiner joiner = new StringJoiner("\n");
+        for (WordInfo w : wordInfoList) {
+            String s = w.getValue() + " " +w.getWordCount();
+            joiner.add(s);
+        }
+        return joiner.toString();
     }
 
     private Map<String, List<WordInfo>> getListMap(List<WordInfo> wordInfoList) {
